@@ -1,11 +1,11 @@
 export default function Feedback({ good, neutral, bad, totalFeedback, positiveFeedback }) {
   return (
-    <div>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {totalFeedback}</p>
-      <p>Positive: {positiveFeedback}%</p>
+    <div className="stats">
+      <p>Good: <span className="value">{good}</span></p>
+      <p>Neutral: <span className="value">{neutral}</span></p>
+      <p>Bad: <span className="value">{bad}</span></p>
+      <p>Total: <span className="value">{totalFeedback}</span></p>
+      <p>Positive: <span className="value">{positiveFeedback}%</span></p>
     </div>
   );
 }

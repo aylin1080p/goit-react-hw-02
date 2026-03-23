@@ -28,25 +28,27 @@ export default function App() {
   };
 
   return (
-    <>
-      <Description />
-      <Options
-        updateFeedback={updateFeedback}
-        resetFeedback={resetFeedback}
-        totalFeedback={totalFeedback}
-      />
-      {totalFeedback > 0 ? (
-        <Feedback
-          good={feedback.good}
-          neutral={feedback.neutral}
-          bad={feedback.bad}
+    <main className="app">
+      <section className="panel">
+        <Description />
+        <Options
+          updateFeedback={updateFeedback}
+          resetFeedback={resetFeedback}
           totalFeedback={totalFeedback}
-          positiveFeedback={positiveFeedback}
         />
-      ) : (
-        <Notification />
-      )}
-    </>
+        {totalFeedback > 0 ? (
+          <Feedback
+            good={feedback.good}
+            neutral={feedback.neutral}
+            bad={feedback.bad}
+            totalFeedback={totalFeedback}
+            positiveFeedback={positiveFeedback}
+          />
+        ) : (
+          <Notification />
+        )}
+      </section>
+    </main>
   );
 }
 

@@ -1,3 +1,7 @@
 export default function Notification() {
-  return <p>No feedback yet</p>;
+  return (
+    <div className="notification">
+      <p>No feedback yet</p>
+    </div>
+  );
 }
