@@ -6,12 +6,21 @@ import Notification from './components/Notification/Notification';
 
 export default function App() {
   const [feedback, setFeedback] = useState(() => {
-    const saved = localStorage.getItem('feedback');
-    return saved ? JSON.parse(saved) : { good: 0, neutral: 0, bad: 0 };
+    try {
+      const saved = localStorage.getItem('feedback');
+      return saved ? JSON.parse(saved) : { good: 0, neutral: 0, bad: 0 };
+    } catch (error) {
+      console.error('Error parsing feedback from localStorage:', error);
+      return { good: 0, neutral: 0, bad: 0 };
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem('feedback', JSON.stringify(feedback));
+    try {
+      localStorage.setItem('feedback', JSON.stringify(feedback));
+    } catch (error) {
+      console.error('Error saving feedback to localStorage:', error);
+    }
   }, [feedback]);
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
